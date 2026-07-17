@@ -1,0 +1,20 @@
+# what is the goal of your workflow
+# Goal: To check linting is correct or not
+
+name: Auto-linter
+
+on:
+  push:
+    paths: "*.py"
+
+
+jobs:
+  code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout/Clone the code
+        uses: actions/checkout@v7
+        # This tool  will install the linting tool
+      - name: Install Linter
+        run: pip install ruff
+        
