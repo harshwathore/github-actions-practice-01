@@ -1,0 +1,32 @@
+name: mycicd-02-workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  code:
+    runs-on: ubuntu-latest
+    steps:
+      - name: this is my code step
+        run: echo "Running my workflow"
+
+  build:
+    needs: [code]
+    runs-on: ubuntu-latest
+    steps:
+      - name: this is my build step
+        run: echo "Running build stage"
+
+  test:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - name: this is my test stage
+        run: echo "Running test stage"
+
+  deploy:
+    needs: [build,test]
+    runs-on: ubuntu-latest
+    steps:
+      - name: this is my deploy stage
+        run: echo "Running deploy stage"
