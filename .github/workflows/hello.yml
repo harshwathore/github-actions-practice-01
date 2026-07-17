@@ -1,12 +1,21 @@
 # workflow
 # should have name
+name: Hello
 
-
-
-
+#This on tells when the workflow should run
+on: 
+  workflow_dispatch:  
 # jobs
 #should be inside the workflow
 
+# Job tells what the workflow should do
+jobs:
+  say-hello:
+    # Creates an Ephermal Container with Ubuntu running
+    runs-on: ubuntu-latest
+    steps:
+     - name: Say hello to everyone
+       run: echo "Hello Dosto" 
 
 # steps
 # should be inside jobs
